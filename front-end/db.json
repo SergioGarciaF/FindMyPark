@@ -1,0 +1,33 @@
+{
+    "parkings": [{
+            "id": "1",
+            "name": "Parking de Cal Gana",
+            "lng": "2.101889",
+            "lat": "41.322664"
+        },
+        {
+            "id": "2",
+            "name": "Parking Prat sud",
+            "lng": "2.097492",
+            "lat": "41.319622"
+        },
+        {
+            "id": "3",
+            "name": "Random",
+            "lng": "2.012836",
+            "lat": "41.559654"
+        },
+        {
+            "id": "c881",
+            "name": "Hola",
+            "lat": "5258",
+            "lng": "5654"
+        },
+        {
+            "id": "d7f7",
+            "name": "Holaaa",
+            "lat": "64756",
+            "lng": "9088"
+        }
+    ]
+}
