@@ -6,9 +6,9 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "postbuild": "cp -r dist ../backend",
     "lint": "eslint .",
     "preview": "vite preview",
-    "postbuild": "cp -r dist ../backend",
     "server": "json-server --watch db.json --port 3001"
   },
   "dependencies": {
