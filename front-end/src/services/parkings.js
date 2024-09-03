@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const baseUrl = '/api/parkings/'
+const baseUrl = import.meta.env.VITE_BASE_URL
 
 const getData = async () => {
     const request = axios.get(baseUrl)
