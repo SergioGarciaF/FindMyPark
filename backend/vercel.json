@@ -1,5 +1,6 @@
 {
   "version": 2,
+  "public": "dist",
   "builds": [
     {
       "src": "index.js",
@@ -8,12 +9,12 @@
   ],
   "routes": [
     {
-      "src": "/dist/(.*)",
-      "dest": "/dist/$1"
+      "src": "/api/(.*)",   
+      "dest": "/index.js"
     },
     {
-      "src": "/(.*)",
-      "dest": "index.js"
+      "src": "/(.*)",      
+      "dest": "/dist/index.html"
     }
   ]
 }
