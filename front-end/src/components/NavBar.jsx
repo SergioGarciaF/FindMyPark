@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import Toggle from './ui/Toggle';
+
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -79,7 +79,6 @@ const Navbar = () => {
             <li><Link to="/about-us" onClick={closeMenu}>¿Qué es FindMyPark?</Link></li>
             <li><Link to="/inform-data" onClick={closeMenu}>Informar de un Parking</Link></li>
             <li><Link to="/contact" onClick={closeMenu}>Contacto</Link></li>
-            <Toggle />
           </ul>
         </nav>
       </motion.div>

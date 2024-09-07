@@ -68,5 +68,15 @@ export const cities = [
     name: "Terrassa",
     lat: 41.569687,
     lng: 2.014720
+  },
+  {
+    name: 'Hostalric',
+    lat: 41.743420,
+    lng: 2.628362
+  },
+  {
+    name: 'Girona',
+    lat: 41.974616,
+    lng: 2.818895
   }
 ];
