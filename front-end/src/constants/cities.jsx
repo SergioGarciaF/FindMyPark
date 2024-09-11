@@ -5,14 +5,34 @@ export const cities = [
     lng: 1.904992
   },
   {
+    name: 'Badia del Vallès',
+    lat: 41.507656,
+    lng: 2.114514
+  },
+  {
     name: 'Barcelona',
     lat: 41.399634,
     lng: 2.165970
   },
   {
+    name: 'Barberà del Vallès',
+    lat: 41.517449,
+    lng: 2.124902
+  },
+  {
     name: 'Begues',
     lat: 41.333823,
     lng: 1.919254
+  },
+  {
+    name: 'Castellar del Vallès',
+    lat: 41.611590,
+    lng: 2.088104
+  },
+  {
+    name: 'Castellbisbal',
+    lat: 41.481635,
+    lng: 1.986636
   },
   {
     name: 'Castelldefels',
@@ -23,6 +43,11 @@ export const cities = [
     name: 'Castellví de Rosanes',
     lat: 41.449999,
     lng: 1.899549
+  },
+  {
+    name: 'Cerdanyola del Vallès',
+    lat: 41.491778,
+    lng: 2.138215
   },
   {
     name: 'Collbató',
@@ -90,6 +115,11 @@ export const cities = [
     lng: 1.917314
   },
   {
+    name: 'Matadepera',
+    lat: 41.613143,
+    lng: 2.012739
+  },
+  {
     name: 'Molins de Rei',
     lat: 41.412988,
     lng: 2.018183
@@ -105,9 +135,24 @@ export const cities = [
     lng: 1.893320
   },
   {
+    name: 'Palau-solità i Plegamans',
+    lat: 41.582166,
+    lng: 2.180555
+  },
+  {
     name: 'Pallejà',
     lat: 41.421968,
     lng: 1.996892
+  },
+  {
+    name: 'Polinyà',
+    lat: 41.554043,
+    lng: 2.158194
+  },
+  {
+    name: 'Ripollet',
+    lat: 41.498542,
+    lng: 2.160006
   },
   {
     name: 'Rubí',
@@ -135,6 +180,11 @@ export const cities = [
     lng: 1.997162
   },
   {
+    name: 'Sant Cugat del Vallès',
+    lat: 41.474194,
+    lng: 2.075979
+  },
+  {
     name: 'Sant Feliu de Llobregat',
     lat: 41.386213,
     lng: 2.047617
@@ -143,6 +193,16 @@ export const cities = [
     name: 'Sant Joan Despí',
     lat: 41.366848,
     lng: 2.056797
+  },
+  {
+    name: 'Sant Llorenç Savall',
+    lat: 41.680153,
+    lng: 2.057632
+  },
+  {
+    name: 'Sant Quirze del Vallès',
+    lat: 41.534255,
+    lng: 2.080139
   },
   {
     name: 'Sant Vicenç dels Horts',
@@ -155,6 +215,16 @@ export const cities = [
     lng: 2.023013
   },
   {
+    name: 'Santa Perpètua de Mogoda',
+    lat: 41.533116,
+    lng: 2.182061
+  },
+  {
+    name: 'Sentmenat',
+    lat: 41.611895,
+    lng: 2.136248
+  },
+  {
     name: 'Terrassa',
     lat: 41.569687,
     lng: 2.014720
@@ -165,6 +235,16 @@ export const cities = [
     lng: 1.979878
   },
   {
+    name: 'Ullastrell',
+    lat: 41.526896,
+    lng: 1.958383
+  },
+  {
+    name: 'Vacarisses',
+    lat: 41.595456,
+    lng: 1.921886
+  },
+  {
     name: 'Vallirana',
     lat: 41.384468,
     lng: 1.933614
@@ -173,5 +253,10 @@ export const cities = [
     name: 'Viladecans',
     lat: 41.316520,
     lng: 2.012111
+  },
+  {
+    name: 'Viladecavalls',
+    lat: 41.556439,
+    lng: 1.954784
   }
 ];
