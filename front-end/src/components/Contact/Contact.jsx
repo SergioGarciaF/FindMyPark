@@ -13,6 +13,8 @@ const Contact = () => {
     const [asunto, setAsunto] = useState('');
     const [userMessage, setUserMessage] = useState('');
     const [message, setMessage] = useState('');
+    const [isSubmitting, setIsSubmitting] = useState(false);
+
 
     // Variables de entorno con los IDs necesarios para enviar el correo
     const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
@@ -22,6 +24,13 @@ const Contact = () => {
     // Función que maneja el envío del formulario
     const onSubmit = (e) => {
         e.preventDefault(); 
+
+        if (!mail || !userName || !asunto || !userMessage) {
+            setMessage('Por favor, rellena todos los campos.');
+            return;
+        }
+        
+        setIsSubmitting(true)
 
         // Parámetros para enviar a EmailJS con los datos del formulario
         const templateParams = {
@@ -36,7 +45,7 @@ const Contact = () => {
             .then((response) => {
                 console.log('SUCCESS!', response.status, response.text); 
                 setMessage('¡Correo enviado con éxito, gracias por ayudar a la comunidad!'); // Mensaje de éxito
-
+                setIsSubmitting(false);
                 // Limpiar los campos del formulario
                 setMail('');
                 setUserName('');
@@ -51,8 +60,7 @@ const Contact = () => {
             .catch((error) => {
                 console.log('FAILED...', error); 
                 setMessage('Error al enviar el correo :(. Por favor, inténtalo de nuevo.'); 
-
-                
+                setIsSubmitting(false);
                 setTimeout(() => {
                     setMessage('');
                 }, 4000);
@@ -61,7 +69,6 @@ const Contact = () => {
 
     return (
         <>
-            {/* Helmet para gestionar las meta etiquetas para SEO y redes sociales */}
             <Helmet>
                 <title>Contacto - FindMyPark</title>
                 <meta
@@ -77,41 +84,59 @@ const Contact = () => {
                 <meta property="og:type" content="website" />
             </Helmet>
             <SecondaryMobileNavbar />
-            {/* Sección principal con el formulario de contacto */}
-            <section className="flex flex-col items-center justify-center min-h-screen px-8 space-y-8 md:flex-row md:space-y-0">
+            <section className="flex flex-col items-center justify-center min-h-screen px-6 py-12 space-y-12 md:space-y-0 md:flex-row md:gap-16 bg-gray-50">
                 {/* Formulario de contacto */}
-                <div className="flex flex-col w-full max-w-2xl p-8 space-y-6 bg-white rounded-lg shadow-lg md:w-1/2">
-                    <header>
-                        <h1 className="text-4xl font-bold text-center md:text-3xl font-head">¡Ayúdanos a mejorar!</h1>
-                    </header>
-                    <p className="text-center text-md md:text-base font-text">
-                        ¿Has encontrado algún problema en un parking? ¿Conoces algún parking que no cumpla con los requisitos? ¿Tienes sugerencias para mejorar nuestra web? Tu opinión es muy importante para nosotros.
-                        <br />
-                        Por favor, rellena el formulario y cuéntanos cualquier incidencia o sugerencia que tengas. Juntos podemos hacer que la experiencia de nuestros usuarios sea aún mejor. ¡Gracias por colaborar!
+                <div className="flex flex-col w-full max-w-lg p-8 space-y-6 bg-white rounded-lg shadow-md">
+                    <h1 className="text-2xl font-bold text-center text-gray-800 md:text-3xl">¡Ayúdanos a mejorar!</h1>
+                    <p className="text-center text-gray-600 text-md md:text-base">
+                        ¿Has encontrado algún problema en un parking? ¿Conoces algún parking que no cumpla con los requisitos? Tu opinión es importante para nosotros.
                     </p>
 
-                    {/* Formulario con campos de texto */}
                     <form onSubmit={onSubmit} className="flex flex-col space-y-4">
-                        <Input text="Tu email" value={mail} onChange={setMail} />
-                        <Input text="Tu nombre" value={userName} onChange={setUserName} />
-                        <Input text="Asunto" value={asunto} onChange={setAsunto} />
+                        <Input
+                            text="Tu email"
+                            value={mail}
+                            onChange={setMail}
+                            type="email"
+                            required
+                            placeholder="tucorreo@ejemplo.com"
+                        />
+                        <Input
+                            text="Tu nombre"
+                            value={userName}
+                            onChange={setUserName}
+                            required
+                            placeholder="Tu nombre completo"
+                        />
+                        <Input
+                            text="Asunto"
+                            value={asunto}
+                            onChange={setAsunto}
+                            required
+                            placeholder="Asunto del mensaje"
+                        />
                         <textarea
-                            className="self-center w-full p-2 border border-gray-300 rounded md:w-1/2"
+                            className="w-full p-4 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-primary"
                             placeholder="Escribe tu mensaje"
                             value={userMessage}
                             onChange={(e) => setUserMessage(e.target.value)}
                             rows="4"
+                            required
                         />
-                        <Button text="Enviar" />
+                        <Button
+                            text={isSubmitting ? "Enviando" : "Enviar"}
+                            disabled={isSubmitting}
+                        />
                     </form>
 
-                    {/* Mensaje de confirmación de envío */}
+                    {/* Mensaje de confirmación o error */}
                     {message && <p className="mt-4 text-center text-green-600">{message}</p>}
                 </div>
 
-                <aside className="order-last w-full md:w-1/2 md:order-first">
-                    <img className="w-full" src={image} alt="Imagen de contacto" />
-                </aside>
+                {/* Imagen de contacto */}
+                <div className="hidden md:block md:w-1/2">
+                    <img className="w-full max-w-sm mx-auto" src={image} alt="Imagen de contacto" />
+                </div>
             </section>
         </>
     );

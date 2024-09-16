@@ -15,7 +15,7 @@ const SecondaryMobileNavbar = () => {
   };
 
   return (
-    <nav className="md:mx-32 text-secondary bg-background font-head">
+    <nav className="md:hidden text-secondary bg-background font-head">
       <div className="min-w-full px-4 mx-auto sm:px-6 lg:px-12 lg:py-2">
         <div className="flex items-center justify-between h-16 p-4 ">
           <p className='font-head text-bold'>LOGO</p>
