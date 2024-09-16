@@ -1,7 +1,8 @@
 import image1 from '../../assets/drawkit-transport-scene-1.svg';
 import image2 from '../../assets/drawkit-transport-scene-3.svg';
 import image3 from '../../assets/drawkit-transport-scene-10.svg';
-import {Helmet} from 'react-helmet';
+import { Helmet } from 'react-helmet';
+import SecondaryMobileNavbar from '../SecondaryMobileNavBar/SecondaryMobileNavbar';
 
 const AboutUs = () => {
     return (
@@ -41,30 +42,30 @@ const AboutUs = () => {
                 {/* Schema.org (Estructura de datos) */}
                 <script type="application/ld+json">
                     {`
-      {
-        "@context": "https://schema.org",
-        "@type": "Organization",
-        "name": "FindMyPark",
-        "url": "https://tusitio.com",
-        "logo": "URL_DE_LA_IMAGEN_DEL_LOGO_O_DE_LA_WEB",
-        "description": "FindMyPark te ayuda a encontrar parkings gratuitos fácilmente.",
-        "sameAs": [
-          "https://www.facebook.com/FindMyPark",
-          "https://www.twitter.com/FindMyPark",
-          "https://www.instagram.com/FindMyPark"
-        ]
-      }
-    `}
+                        {
+                            "@context": "https://schema.org",
+                            "@type": "Organization",
+                            "name": "FindMyPark",
+                            "url": "https://tusitio.com",
+                            "logo": "URL_DE_LA_IMAGEN_DEL_LOGO_O_DE_LA_WEB",
+                            "description": "FindMyPark te ayuda a encontrar parkings gratuitos fácilmente.",
+                            "sameAs": [
+                            "https://www.facebook.com/FindMyPark",
+                            "https://www.twitter.com/FindMyPark",
+                            "https://www.instagram.com/FindMyPark"
+                            ]
+                            }
+                    `}
                 </script>
             </Helmet>
-
-            <div className="px-4 md:mx-32">
+             <SecondaryMobileNavbar/>           
+            <div className="px-4 md:mx-36">
                 <article className="flex flex-col w-full space-y-10 text-secondary">
                     {/* Primera sección */}
                     <section className="flex flex-col items-center space-y-4 md:flex-row md:justify-between md:mx-auto md:w-full md:p-10 md:py-8">
                         <div className="flex flex-col space-y-4 md:w-1/2">
-                            <h1 className="text-xl font-bold text-start md:text-4xl font-head">¿Por qué Find My Park?</h1>
-                            <p className="text-sm md:text-xl font-text">
+                            <h1 className="text-3xl font-bold text-start md:text-4xl font-head">¿Por qué Find My Park?</h1>
+                            <p className="text-md md:text-xl font-text">
                                 Todo comenzó con una frustración común: viajar a una nueva ciudad y pasar interminables minutos (¡o incluso horas!) buscando un lugar para aparcar sin éxito. Como muchos de nosotros, he experimentado esa sensación de estrés al no conocer la zona, dar vueltas en busca de un hueco libre y, al final, terminar pagando en un parking privado o en zonas de aparcamiento regulado como la zona azul o verde. Estas situaciones me llevaron a pensar en una solución que hiciera más sencilla y económica la vida de quienes, como yo, disfrutan de visitar nuevas ciudades en coche.
                             </p>
                         </div>
@@ -74,8 +75,8 @@ const AboutUs = () => {
                     {/* Segunda sección */}
                     <section className="flex flex-col items-center space-y-4 md:flex-row md:justify-around md:mx-auto">
                         <div className="flex flex-col space-y-4 md:w-1/2">
-                            <h2 className="text-xl font-bold text-start md:text-4xl font-head">Creación y objetivo de Find My Park</h2>
-                            <p className="text-sm md:text-xl font-text">
+                            <h2 className="text-3xl font-bold text-start md:text-4xl font-head">Creación y objetivo de Find My Park</h2>
+                            <p className="text-md md:text-xl font-text">
                                 Fue en 2024 cuando decidí hacer algo al respecto y nació Find My Park. Este proyecto fue creado con un objetivo claro: ofrecer una plataforma sencilla y efectiva para que los usuarios puedan consultar parkings gratuitos y sin restricciones de horarios en diferentes ciudades. La idea es ayudar a las personas a ahorrar tiempo, dinero y a reducir el estrés que suele conllevar el aparcamiento en áreas urbanas desconocidas. Queremos ser la fuente confiable a la que puedas acudir antes de salir de casa o durante tu viaje, brindándote la tranquilidad de saber que podrás encontrar un lugar donde aparcar sin complicaciones.
                             </p>
                         </div>
@@ -85,8 +86,8 @@ const AboutUs = () => {
                     {/* Tercera sección */}
                     <section className="flex flex-col items-center space-y-4 md:flex-row md:justify-around md:mx-auto">
                         <div className="flex flex-col space-y-4 md:w-1/2">
-                            <h2 className="text-xl font-bold text-start md:text-4xl font-head">Ventajas de consultar parkings gratuitos en Find My Park</h2>
-                            <ol className="m-4 space-y-2 text-sm list-decimal md:text-xl font-text">
+                            <h2 className="text-3xl font-bold text-start md:text-4xl font-head">Ventajas de consultar parkings gratuitos en Find My Park</h2>
+                            <ol className="m-4 space-y-2 list-decimal text-md md:text-xl font-text">
                                 <li>
                                     <span className="font-bold text-buttonText">Ahorro de Dinero</span>
                                     : Nuestro servicio se centra en la búsqueda de parkings completamente gratuitos. No más sorpresas de último minuto con tarifas elevadas en parkings privados o de zona regulada.

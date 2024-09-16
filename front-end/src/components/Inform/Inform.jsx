@@ -4,6 +4,7 @@ import image from '../../assets/drawkit-transport-scene-2.svg';
 import Input from "../ui/Input"; 
 import Button from "../ui/Button"; 
 import { Helmet } from "react-helmet"; // Para gestionar las meta etiquetas del documento
+import SecondaryMobileNavBar from '../SecondaryMobileNavBar/SecondaryMobileNavbar'
 
 const Inform = () => {
    
@@ -81,15 +82,15 @@ const Inform = () => {
                 <meta name="robots" content="index,follow" />
                 <meta name="keywords" content="informar parking, parking gratuito, sugerir parking, FindMyPark" />
             </Helmet>
-
+            <SecondaryMobileNavBar/>
             {/* Sección principal con el formulario */}
             <section className="flex flex-col items-center justify-center min-h-screen px-8 space-y-8 md:flex-row md:space-y-0">
                 {/* Contenedor del formulario */}
                 <div className="flex flex-col w-full max-w-2xl p-8 space-y-6 bg-white rounded-lg shadow-lg md:w-1/2">
                     <header>
-                        <h1 className="text-2xl font-bold text-center md:text-3xl font-head">¿Conoces algún parking?</h1>
+                        <h1 className="text-4xl font-bold text-center md:text-3xl font-head">¿Conoces algún parking?</h1>
                     </header>
-                    <p className="text-sm text-center md:text-base font-text">
+                    <p className="text-center text-md md:text-base font-text">
                         Si conoces algún parking gratuito que no esté en nuestra web, por favor, infórmanos a través de este formulario. Revisaremos tu sugerencia y lo añadiremos a nuestra base de datos para que toda la comunidad pueda beneficiarse. ¡Juntos hacemos de Find My Park un recurso mejor para todos!
                     </p>
 

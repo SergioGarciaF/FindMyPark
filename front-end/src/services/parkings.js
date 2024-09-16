@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const baseUrl = '/api/parkings/'
+const baseUrl = 'http://localhost:3002/parkings'
 
 const getData = async () => {
     const request = axios.get(baseUrl)

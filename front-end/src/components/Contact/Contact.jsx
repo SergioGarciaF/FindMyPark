@@ -4,6 +4,8 @@ import image from '../../assets/drawkit-transport-scene-5.svg';
 import Input from "../ui/Input"; 
 import Button from "../ui/Button"; 
 import { Helmet } from 'react-helmet'; // Librería para gestionar las etiquetas del <head>
+import SecondaryMobileNavbar from "../SecondaryMobileNavBar/SecondaryMobileNavbar";
+
 
 const Contact = () => {
     const [mail, setMail] = useState('');
@@ -74,15 +76,15 @@ const Contact = () => {
                 <meta property="og:url" content="https://tusitio.com/contact" />
                 <meta property="og:type" content="website" />
             </Helmet>
-
+            <SecondaryMobileNavbar />
             {/* Sección principal con el formulario de contacto */}
             <section className="flex flex-col items-center justify-center min-h-screen px-8 space-y-8 md:flex-row md:space-y-0">
                 {/* Formulario de contacto */}
                 <div className="flex flex-col w-full max-w-2xl p-8 space-y-6 bg-white rounded-lg shadow-lg md:w-1/2">
                     <header>
-                        <h1 className="text-2xl font-bold text-center md:text-3xl font-head">¡Ayúdanos a mejorar!</h1>
+                        <h1 className="text-4xl font-bold text-center md:text-3xl font-head">¡Ayúdanos a mejorar!</h1>
                     </header>
-                    <p className="text-sm text-center md:text-base font-text">
+                    <p className="text-center text-md md:text-base font-text">
                         ¿Has encontrado algún problema en un parking? ¿Conoces algún parking que no cumpla con los requisitos? ¿Tienes sugerencias para mejorar nuestra web? Tu opinión es muy importante para nosotros.
                         <br />
                         Por favor, rellena el formulario y cuéntanos cualquier incidencia o sugerencia que tengas. Juntos podemos hacer que la experiencia de nuestros usuarios sea aún mejor. ¡Gracias por colaborar!
