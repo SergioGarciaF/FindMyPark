@@ -7,6 +7,7 @@ import { Helmet } from 'react-helmet'
 import SearchAddress from './SearchAddress/SearchAddress';
 
 function Home() {
+  // eslint-disable-next-line no-unused-vars
   const [location, setLocation] = useState({ lat: 41.326319, lng: 2.096115 });
   const [parkings, setParkings] = useState([]);
   const [selectPosition, setSelectPosition] = useState(null)
@@ -86,11 +87,6 @@ function Home() {
           "url": "https://tusitio.com",
           "logo": "URL_DE_LA_IMAGEN_DEL_LOGO_O_DE_LA_WEB",
           "description": "FindMyPark ayuda a los usuarios a encontrar estacionamientos gratuitos cerca de ellos.",
-          "sameAs": [
-            "https://www.facebook.com/FindMyPark",
-            "https://www.twitter.com/FindMyPark",
-            "https://www.instagram.com/FindMyPark"
-          ]
         }
       `}
         </script>

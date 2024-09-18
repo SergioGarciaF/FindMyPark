@@ -1,12 +1,15 @@
 import axios from 'axios'
 
-const baseUrl = 'http://localhost:3002/parkings'
+const baseUrl = '/api/parkings';
 
+// Función para obtener todos los parkings
 const getData = async () => {
-    const request = axios.get(baseUrl)
-    const response = await request
-    return response.data
-}
+    const request = axios.get(baseUrl);
+    const response = await request;
+    return response.data;
+};
 
 
-export default {getData}
+
+
+export default { getData};

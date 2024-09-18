@@ -5,13 +5,13 @@ import MarkerClusterGroup from 'react-leaflet-cluster';
 import { useEffect } from 'react';
 
 // Hook personalizado para actualizar la vista del mapa cuando la ubicación cambia
-const ChangeMapView = ({ location, selectPosition}) => {
+const ChangeMapView = ({ location, selectPosition }) => {
   const map = useMap();
-  
+
   useEffect(() => {
     // Si hay una ubicación seleccionada, cambia la vista a esa ubicación
     if (selectPosition) {
-      map.setView([selectPosition.lat, selectPosition.lon], 22); // lon en lugar de lng para Nominatim
+      map.setView([selectPosition.lat, selectPosition.lon], 21); // lon en lugar de lng para Nominatim
     } else {
       // Si no hay una ubicación seleccionada, utiliza la ubicación predeterminada
       map.setView([location.lat, location.lng], 13);
@@ -21,7 +21,7 @@ const ChangeMapView = ({ location, selectPosition}) => {
   return null;
 };
 
-const MapView = ({ location, parkings, selectPosition}) => {
+const MapView = ({ location, parkings, selectPosition }) => {
   const customIcon = new L.Icon({
     iconUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon.png',
     iconSize: [25, 41],
