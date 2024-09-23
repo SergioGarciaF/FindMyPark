@@ -1,33 +1,68 @@
 {
     "parkings": [{
-            "id": "1",
-            "name": "Parking de Cal Gana",
-            "lng": "2.101889",
-            "lat": "41.322664"
+            "location": {
+                "type": "Point",
+                "coordinates": [
+                    2.105807,
+                    41.325035
+                ]
+            },
+            "name": "Parking Pssg. Ciutat de l'Hospitalet",
+            "city": "El Prat de Llobregat",
+            "size": "M",
+            "id": "66eeefcf40e16ee4de7e715f"
         },
         {
-            "id": "2",
-            "name": "Parking Prat sud",
-            "lng": "2.097492",
-            "lat": "41.319622"
+            "location": {
+                "type": "Point",
+                "coordinates": [
+                    2.10561,
+                    41.325686
+                ]
+            },
+            "name": "Parking Av. Pare Andreu de Palma",
+            "city": "El Prat de Llobregat",
+            "size": "M",
+            "id": "66eeefe740e16ee4de7e7161"
         },
         {
-            "id": "3",
-            "name": "Random",
-            "lng": "2.012836",
-            "lat": "41.559654"
+            "location": {
+                "type": "Point",
+                "coordinates": [
+                    2.106884,
+                    41.328596
+                ]
+            },
+            "name": "Parking Parque Canino El Prat",
+            "city": "El Prat de Llobregat",
+            "size": "L",
+            "id": "66eef00040e16ee4de7e7163"
         },
         {
-            "id": "c881",
-            "name": "Hola",
-            "lat": "5258",
-            "lng": "5654"
+            "location": {
+                "type": "Point",
+                "coordinates": [
+                    2.088176,
+                    41.333911
+                ]
+            },
+            "name": "Parking Carrefour",
+            "city": "El Prat de Llobregat",
+            "size": "XXL",
+            "id": "66eef05040e16ee4de7e716a"
         },
         {
-            "id": "d7f7",
-            "name": "Holaaa",
-            "lat": "64756",
-            "lng": "9088"
+            "location": {
+                "type": "Point",
+                "coordinates": [
+                    2.101914,
+                    41.322895
+                ]
+            },
+            "name": "Parking Cal Gana",
+            "city": "El Prat de Llobregat",
+            "size": "XL",
+            "id": "66eef06a40e16ee4de7e716c"
         }
     ]
 }

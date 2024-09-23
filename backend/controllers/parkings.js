@@ -29,7 +29,7 @@ parkingsRouter.get('/nearby', async (request, response) => {
             type: 'Point',
             coordinates: [longitude, latitude]
           },
-          $maxDistance: 5000  // Distancia en metros (5km)
+          $maxDistance: 1000  // Distancia en metros (2km)
         }
       }
     })
@@ -42,3 +42,4 @@ parkingsRouter.get('/nearby', async (request, response) => {
 })
 
 module.exports = parkingsRouter
+

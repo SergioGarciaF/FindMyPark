@@ -60,9 +60,12 @@ const SearchAddress = ({ setSelectPosition }) => {
       </div>
       <div className="max-w-md mx-auto mt-2 overflow-hidden bg-white rounded-lg shadow-lg">
         <ul className="divide-y divide-gray-200">
-          {listPlaces.map(item => (
+        {listPlaces.map(item => (
             <li key={item?.place_id} className="flex items-center px-4 py-4 cursor-pointer hover:bg-gray-100" onClick={() => {
-              setSelectPosition(item); // Esto actualizará el estado selectPosition en MapView
+              setSelectPosition({
+                lat: parseFloat(item?.lat || item?.boundingbox[0]), // Asegúrate de usar la propiedad correcta
+                lng: parseFloat(item?.lon || item?.boundingbox[1]), // Cambia lng a lon aquí
+              });
               setSearchText("");
             }}>
               <div className="flex-shrink-0">

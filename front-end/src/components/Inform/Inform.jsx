@@ -13,7 +13,7 @@ const Inform = () => {
     const [url, setUrl] = useState('');
     const [cityName, setCityName] = useState('');
     const [message, setMessage] = useState('');
-    const [isSubmitting, setIsSubmitting] = useState(false); // Control de estado de envío
+    const [isSubmitting, setIsSubmitting] = useState(false);
 
     const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
     const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
@@ -21,14 +21,11 @@ const Inform = () => {
 
     const onSubmit = (e) => {
         e.preventDefault();
-
-        // Validación mínima para evitar envíos vacíos
         if (!userName || !userMail || !parkName || !cityName || !url) {
             setMessage('Por favor, rellena todos los campos.');
             return;
         }
-
-        setIsSubmitting(true); // Comienza el envío
+        setIsSubmitting(true);
 
         const templateParams = {
             user_name: userName,
@@ -41,21 +38,17 @@ const Inform = () => {
         emailjs.send(serviceId, templateId, templateParams, userId)
             .then(() => {
                 setMessage('¡Correo enviado con éxito, gracias por ayudar a la comunidad!');
-                setIsSubmitting(false); // Finaliza el envío exitoso
-
-                // Limpieza de campos
+                setIsSubmitting(false);
                 setUserName('');
                 setUserMail('');
                 setParkName('');
                 setCityName('');
                 setUrl('');
-
-                // Limpiar el mensaje después de 4 segundos
                 setTimeout(() => setMessage(''), 4000);
             })
             .catch(() => {
                 setMessage('Error al enviar el correo. Por favor, inténtalo de nuevo.');
-                setIsSubmitting(false); // Finaliza el envío con error
+                setIsSubmitting(false);
                 setTimeout(() => setMessage(''), 4000);
             });
     };
@@ -66,16 +59,10 @@ const Inform = () => {
                 <title>Informar de un Parking Gratuito - FindMyPark</title>
                 <meta
                     name="description"
-                    content="Ayúdanos a mejorar nuestra base de datos de parkings gratuitos informando sobre estacionamientos que conozcas. Completa el formulario y haz tu contribución a la comunidad."
+                    content="Ayúdanos a mejorar nuestra base de datos de parkings gratuitos informando sobre estacionamientos que conozcas."
                 />
-                <meta
-                    property="og:title"
-                    content="Informa sobre parkings gratuitos en FindMyPark"
-                />
-                <meta
-                    property="og:description"
-                    content="¿Conoces un parking gratuito? Infórmanos sobre su ubicación para que lo añadamos a nuestra base de datos y ayudemos a la comunidad."
-                />
+                <meta property="og:title" content="Informa sobre parkings gratuitos en FindMyPark" />
+                <meta property="og:description" content="Informa de parkings gratuitos y ayuda a la comunidad." />
                 <meta property="og:url" content="https://tusitio.com/inform-data" />
                 <meta property="og:type" content="website" />
                 <meta name="robots" content="index,follow" />
@@ -84,29 +71,33 @@ const Inform = () => {
 
             <SecondaryMobileNavBar />
 
-            <section className="flex flex-col items-center justify-center min-h-screen px-8 space-y-8 md:flex-row md:space-y-0">
-                <div className="flex flex-col w-full max-w-2xl p-8 space-y-6 bg-white rounded-lg shadow-lg md:w-1/2">
+            <section className="flex flex-col items-center justify-center min-h-screen px-6 py-12 bg-gray-50 md:flex-row md:space-x-8">
+                <div className="flex flex-col w-full max-w-2xl p-10 space-y-6 bg-white shadow-lg rounded-3xl md:w-1/2">
                     <header>
-                        <h1 className="text-4xl font-bold text-center md:text-3xl font-head">¿Conoces algún parking?</h1>
+                        <h1 className="text-4xl font-semibold text-center text-gray-900">¿Conoces algún parking?</h1>
                     </header>
-                    <p className="text-center text-md md:text-base font-text">
-                        Si conoces algún parking gratuito que no esté en nuestra web, por favor, infórmanos a través de este formulario. Revisaremos tu sugerencia y lo añadiremos a nuestra base de datos para que toda la comunidad pueda beneficiarse. ¡Juntos hacemos de Find My Park un recurso mejor para todos!
+                    <p className="text-lg text-center text-gray-600">
+                        Infórmanos sobre un parking gratuito que conozcas y contribuye a mejorar nuestra base de datos para el beneficio de toda la comunidad. ¡Gracias por tu colaboración!
                     </p>
 
-                    <form onSubmit={onSubmit} className="flex flex-col space-y-4">
+                    <form onSubmit={onSubmit} className="flex flex-col space-y-6">
                         <Input text="Tu nombre" value={userName} onChange={setUserName} />
                         <Input text="Tu email" value={userMail} onChange={setUserMail} />
                         <Input text="Nombre del parking" value={parkName} onChange={setParkName} />
                         <Input text="Ciudad" value={cityName} onChange={setCityName} />
                         <Input text="URL Google maps" value={url} onChange={setUrl} />
-                        <Button text={isSubmitting ? "Enviando" : "Enviar"} disabled={isSubmitting} /> {/* Texto del botón según el estado */}
+                        <Button
+                            text={isSubmitting ? "Enviando..." : "Enviar"}
+                            disabled={isSubmitting}
+                            className="w-full py-3 text-white bg-blue-600 rounded-full shadow hover:bg-blue-500 focus:outline-none focus:ring-4 focus:ring-blue-200"
+                        />
                     </form>
 
-                    {message && <p className="mt-4 text-center text-green-600">{message}</p>}
+                    {message && <p className="mt-4 text-sm text-center text-green-600">{message}</p>}
                 </div>
 
-                <aside className="order-last w-full md:w-1/2 md:order-first">
-                    <img className="w-full" src={image} alt="Imagen de información" />
+                <aside className="w-full mt-8 md:w-1/2 md:mt-0">
+                    <img className="w-full h-auto" src={image} alt="Imagen de información" />
                 </aside>
             </section>
         </>
