@@ -39,7 +39,6 @@ La página web está en estado de pruebas, pero puedes visitar la versión de pr
 ### **Q1 2025 - Mejoras y expansión**
 - **Mejora de la interfaz de usuario (UI)**:
   - Diseño más intuitivo y mejor experiencia de usuario (UX).
-  - Implementación de filtros avanzados (por ciudad, distancia, tipo de parking, etc.).
 - **Expansión de la base de datos**:
   - Continuar ampliando la base de datos con aportaciones de los usuarios.
   - Mejora del proceso de verificación y revisión de parkings sugeridos.
