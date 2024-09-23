@@ -1,62 +1,69 @@
-import L from 'leaflet'; // Importamos Leaflet para manejar mapas y sus funcionalidades
-import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet'; // Componentes de react-leaflet para manejar el mapa
-import 'leaflet/dist/leaflet.css'; // Importamos estilos CSS de Leaflet
-import MarkerClusterGroup from 'react-leaflet-cluster'; // Para agrupar múltiples marcadores
+import L from 'leaflet';
+import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet';
+import 'leaflet/dist/leaflet.css';
+import MarkerClusterGroup from 'react-leaflet-cluster';
 import { useEffect } from 'react';
+import NearbyParkings from '../NearByParkings/NearByParklings';
 
 // Hook personalizado para actualizar la vista del mapa cuando la ubicación cambia
-const ChangeMapView = ({ location }) => {
-  const map = useMap(); // Obtenemos el mapa usando el hook de react-leaflet
-  useEffect(() => {
-    map.setView([location.lat, location.lng], 13); // Cambiamos la vista del mapa a las coordenadas de la nueva ubicación
-  }, [location, map]); 
+const ChangeMapView = ({ location, selectPosition }) => {
+  const map = useMap();
 
-  return null; 
+  useEffect(() => {
+    if (selectPosition) {
+      const { lat, lng } = selectPosition; // Cambia lng a lng aquí
+      console.log('Changing map view to:', lat, lng);
+      map.setView([lat, lng], 21);
+    } else {
+      map.setView([location.lat, location.lng], 13);
+    }
+  }, [location, selectPosition, map]);
+
+  return null;
 };
 
-const MapView = ({ location, parkings }) => {
-  // Icono personalizado para los marcadores en el mapa
+const MapView = ({ location, parkings, selectPosition}) => {
+  
+
   const customIcon = new L.Icon({
-    iconUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon.png', 
-    iconSize: [25, 41], // Tamaño del icono del marcador
-    iconAnchor: [12, 41], // Punto de anclaje del icono (el "pie" del marcador)
-    popupAnchor: [1, -34], // Ajusta la posición del popup respecto al marcador
-    shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png', // Sombra del marcador
-    shadowSize: [41, 41], // Tamaño de la sombra del marcador
+    iconUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon.png',
+    iconSize: [25, 41],
+    iconAnchor: [12, 41],
+    popupAnchor: [1, -34],
+    shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png',
+    shadowSize: [41, 41],
   });
 
+  
   return (
-    <section className="relative w-full h-[calc(60vh-60px)] md:h-[calc(90vh-124px)]" aria-labelledby="map-title">
-      {/* Etiqueta para accesibilidad */}
-      <h2 id="map-title" className="sr-only">Mapa de Estacionamientos</h2>
-
-      {/* Contenedor principal del mapa */}
+    <section className="relative z-0 w-full h-full ml-20 ">
+      {/* Contenedor del mapa */}
       <MapContainer
-        className="absolute inset-0" // Posicionamiento absoluto para ocupar toda la sección
+        className="relative z-0"
         center={[location.lat, location.lng]} 
         zoom={13} 
-        style={{ height: '100%', width: '100%' }} 
-        zoomControl={false} // Desactiva el control de zoom predeterminado
+        style={{ height: '100%', width: '100%' }}
+        zoomControl={false}
       >
-        {/* Hook personalizado para actualizar la vista cuando cambie la ubicación */}
-        <ChangeMapView location={location} />
-
-        {/* Capa de mosaico de OpenStreetMap para mostrar el mapa */}
+        <ChangeMapView location={location} selectPosition={selectPosition} />
         <TileLayer
-          url="https://tile.openstreetmap.org/{z}/{x}/{y}.png" // Fuente de los mosaicos del mapa
-          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors' // Atribución a los contribuidores de OpenStreetMap
+          url="https://api.maptiler.com/maps/streets-v2/{z}/{x}/{y}.png?key=lOBLIUjRiW4O5wNHxSAz"
+          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         />
-
-        {/* Agrupación de marcadores para evitar la superposición */}
         <MarkerClusterGroup>
           {parkings.map(parking => (
-            <Marker key={parking.id} position={[parking.lat, parking.lng]} icon={customIcon}>
+            <Marker 
+              key={parking.id} 
+              position={[parking.location.coordinates[1], parking.location.coordinates[0]]} // Cambiado aquí
+              icon={customIcon}
+            >
               <Popup>
-                <strong>{parking.name || 'Parking'}</strong>
-                <br />
+                <strong>Nombre: {parking.name || 'Parking'}</strong>
+                <p className='text-secondary'>Ciudad: {parking.city || 'Parking'}</p >
+                <p className='text-secondary'>Tamaño: {parking.size || 'Parking'}</p>
                 <span>
                   <a
-                    href={`https://maps.google.com/?q=${parking.lat},${parking.lng}`}
+                    href={`https://maps.google.com/?q=${parking.location.coordinates[1]},${parking.location.coordinates[0]}`} // Cambiado aquí
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={`Ver ${parking.name || 'este estacionamiento'} en Google Maps`}
@@ -69,6 +76,14 @@ const MapView = ({ location, parkings }) => {
           ))}
         </MarkerClusterGroup>
       </MapContainer>
+
+      {/* Mostrar NearbyParkings solo si hay una posición seleccionada */}
+      {selectPosition && (
+        <div className="absolute w-96 bottom-4 right-4">
+          <NearbyParkings selectedLocation={selectPosition} />
+        </div>
+      )}
+      
     </section>
   );
 };
