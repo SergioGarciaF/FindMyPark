@@ -12,8 +12,6 @@ function Home() {
   const [parkings, setParkings] = useState([]);
   const [selectPosition, setSelectPosition] = useState(null)
 
-  console.log(selectPosition)
-
   useEffect(() => {
     if (selectPosition) {
       console.log("Nueva posición seleccionada:", selectPosition);
@@ -26,21 +24,6 @@ function Home() {
       .getData()
       .then(data => setParkings(data));
   }, []);
-
-  // Función para buscar una ciudad en la barra de búsqueda
-  {/**
-    const handleSearchCity = (searchTerm) => {
-    const foundCity = cities.find(city =>
-      city.name.toLowerCase() === searchTerm.toLowerCase()
-    );
-
-    if (foundCity) {
-      setLocation({ lat: foundCity.lat, lng: foundCity.lng });
-    } else {
-      alert('Ciudad no encontrada. Intenta con otro nombre.');
-    }
-  };**/}
-
 
 
   return (

@@ -70,7 +70,7 @@ const Contact = () => {
             </Helmet>
             <SecondaryMobileNavbar />
             <section className="flex flex-col items-center justify-center min-h-screen px-6 py-12 bg-gray-50 md:flex-row md:space-x-8">
-                <div className="flex flex-col w-full max-w-2xl p-10 space-y-6 bg-white shadow-lg rounded-3xl md:w-1/2">
+                <div className="flex flex-col w-full max-w-2xl p-10 space-y-6 bg-white shadow-lg rounded-3xl md:w-1/2 md:animate-fade-in-down">
                     <header>
                         <h1 className="text-4xl font-semibold text-center text-gray-900">¡Ayúdanos a mejorar!</h1>
                     </header>
@@ -100,7 +100,7 @@ const Contact = () => {
                     {message && <p className="mt-4 text-sm text-center text-green-600">{message}</p>}
                 </div>
 
-                <aside className="w-full mt-8 md:w-1/2 md:mt-0">
+                <aside className="w-full mt-8 md:w-1/2 md:mt-0 md:animate-fade-in-left">
                     <img className="w-full h-auto" src={image} alt="Imagen de información" />
                 </aside>
             </section>

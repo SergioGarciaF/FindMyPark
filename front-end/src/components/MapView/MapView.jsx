@@ -1,4 +1,5 @@
 import L from 'leaflet';
+import PositonMarkerIcon from '../../assets/location_10797401.png'
 import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import MarkerClusterGroup from 'react-leaflet-cluster';
@@ -22,8 +23,8 @@ const ChangeMapView = ({ location, selectPosition }) => {
   return null;
 };
 
-const MapView = ({ location, parkings, selectPosition}) => {
-  
+const MapView = ({ location, parkings, selectPosition }) => {
+
 
   const customIcon = new L.Icon({
     iconUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon.png',
@@ -34,14 +35,23 @@ const MapView = ({ location, parkings, selectPosition}) => {
     shadowSize: [41, 41],
   });
 
-  
+  const positionIcon = new L.Icon({
+    iconUrl: PositonMarkerIcon,
+    iconSize: [40, 40],
+    iconAnchor: [12, 41],
+    popupAnchor: [1, -34],
+    shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png',
+    shadowSize: [41, 41],
+  });
+
+
   return (
-    <section className="relative z-0 w-full h-full ml-20 ">
+    <section className="relative z-0 h-full md:ml-20 ">
       {/* Contenedor del mapa */}
       <MapContainer
         className="relative z-0"
-        center={[location.lat, location.lng]} 
-        zoom={13} 
+        center={[location.lat, location.lng]}
+        zoom={13}
         style={{ height: '100%', width: '100%' }}
         zoomControl={false}
       >
@@ -52,8 +62,8 @@ const MapView = ({ location, parkings, selectPosition}) => {
         />
         <MarkerClusterGroup>
           {parkings.map(parking => (
-            <Marker 
-              key={parking.id} 
+            <Marker
+              key={parking.id}
               position={[parking.location.coordinates[1], parking.location.coordinates[0]]} // Cambiado aquí
               icon={customIcon}
             >
@@ -75,6 +85,15 @@ const MapView = ({ location, parkings, selectPosition}) => {
             </Marker>
           ))}
         </MarkerClusterGroup>
+        {/* Añadir el marcador para la posición seleccionada */}
+        {selectPosition && (
+          <Marker position={[selectPosition.lat, selectPosition.lng]} icon={positionIcon}>
+            <Popup>
+              <strong>Posición seleccionada</strong>
+              <p>Lat: {selectPosition.lat}, Lng: {selectPosition.lng}</p>
+            </Popup>
+          </Marker>
+        )}
       </MapContainer>
 
       {/* Mostrar NearbyParkings solo si hay una posición seleccionada */}
@@ -83,7 +102,7 @@ const MapView = ({ location, parkings, selectPosition}) => {
           <NearbyParkings selectedLocation={selectPosition} />
         </div>
       )}
-      
+
     </section>
   );
 };

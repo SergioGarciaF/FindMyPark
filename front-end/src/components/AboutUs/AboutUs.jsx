@@ -13,10 +13,10 @@ const AboutUs = () => {
 
             <SecondaryMobileNavbar />
 
-            <div className="px-6 py-12 ml-20  md:px-16 md:py-20 bg-gray-50">
+            <div className="px-6 py-12 md:ml-20 md:px-16 md:py-20 bg-gray-50">
                 <article className="flex flex-col space-y-16 text-secondary">
                     {/* Primera sección */}
-                    <section className="grid items-center grid-cols-1 gap-12 md:grid-cols-2">
+                    <section className="grid items-center grid-cols-1 gap-12 animate-fade-in-right md:grid-cols-2">
                         <div className="space-y-6">
                             <h1 className="text-4xl font-bold text-gray-900 md:text-5xl">¿Por qué FindMyPark?</h1>
                             <p className="text-lg leading-relaxed text-gray-600 md:text-xl">
@@ -28,7 +28,7 @@ const AboutUs = () => {
                     </section>
 
                     {/* Segunda sección */}
-                    <section className="grid items-center grid-cols-1 gap-12 md:grid-cols-2">
+                    <section className="grid items-center grid-cols-1 gap-12 md:grid-cols-2 animate-fade-in-left">
                         <div className="space-y-6">
                             <h2 className="text-4xl font-bold text-gray-900 md:text-5xl">Creación y objetivo de FindMyPark</h2>
                             <p className="text-lg leading-relaxed text-gray-600 md:text-xl">
@@ -40,7 +40,7 @@ const AboutUs = () => {
                     </section>
 
                     {/* Tercera sección */}
-                    <section className="grid items-center grid-cols-1 gap-12 md:grid-cols-2">
+                    <section className="grid items-center grid-cols-1 gap-12 md:grid-cols-2 animate-fade-in-right ">
                         <div className="space-y-6">
                             <h2 className="text-4xl font-bold text-gray-900 md:text-5xl">Ventajas de FindMyPark</h2>
                             <ol className="space-y-4 text-lg leading-relaxed text-gray-600 list-decimal md:text-xl">
