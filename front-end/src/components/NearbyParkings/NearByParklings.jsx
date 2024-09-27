@@ -44,7 +44,7 @@ const NearbyParkings = ({ selectedLocation }) => {
   }, [selectedLocation]);
 
   return (
-    <div className="max-w-3xl mx-auto mt-8 bg-white shadow-sm rounded-xl">
+    <div className="mx-auto mt-8 bg-white shadow-sm md:max-w-3xl rounded-xl">
       <h3 className="px-6 py-4 text-xl font-semibold text-gray-900">Parkings Cercanos</h3>
       {loading ? (
         <p className="px-6 py-4 text-gray-500">Cargando parkings cercanos...</p>

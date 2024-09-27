@@ -4,7 +4,7 @@ import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import MarkerClusterGroup from 'react-leaflet-cluster';
 import { useEffect } from 'react';
-import NearbyParkings from '../NearByParkings/NearByParklings';
+import NearbyParkings from '../NearbyParkings/NearByParklings';
 
 // Hook personalizado para actualizar la vista del mapa cuando la ubicación cambia
 const ChangeMapView = ({ location, selectPosition }) => {
@@ -98,7 +98,7 @@ const MapView = ({ location, parkings, selectPosition }) => {
 
       {/* Mostrar NearbyParkings solo si hay una posición seleccionada */}
       {selectPosition && (
-        <div className="absolute w-96 bottom-4 right-4">
+        <div className="absolute w-64 md:w-96 bottom-4 right-4">
           <NearbyParkings selectedLocation={selectPosition} />
         </div>
       )}
