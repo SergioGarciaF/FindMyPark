@@ -1,9 +1,9 @@
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import emailjs from "emailjs-com";
 import image from '../../assets/drawkit-transport-scene-5.svg';
 import Input from "../ui/Input";
 import Button from "../ui/Button";
-import { Helmet } from 'react-helmet';
+import { Helmet } from 'react-helmet-async';
 import SecondaryMobileNavbar from "../SecondaryMobileNavBar/SecondaryMobileNavbar";
 
 const Contact = () => {
@@ -18,7 +18,7 @@ const Contact = () => {
     const contactTemplateId = import.meta.env.VITE_EMAILJS_USER_CONTACT_TEMPLATE;
     const userId = import.meta.env.VITE_EMAILJS_USER_ID;
 
-    const onSubmit = (e) => {
+    const onSubmit = useCallback((e) => {
         e.preventDefault();
 
         if (!mail || !userName || !asunto || !userMessage) {
@@ -50,7 +50,7 @@ const Contact = () => {
                 setIsSubmitting(false);
                 setTimeout(() => setMessage(''), 4000);
             });
-    };
+    }, [mail, userName, asunto, userMessage, serviceId, contactTemplateId, userId]);
 
     return (
         <>
@@ -75,19 +75,20 @@ const Contact = () => {
                         <h1 className="text-4xl font-semibold text-center text-gray-900">¡Ayúdanos a mejorar!</h1>
                     </header>
                     <p className="text-lg text-center text-gray-600">
-                    ¿Has encontrado algún problema en un parking? ¿Conoces algún parking que no cumpla con los requisitos? ¿Alguna mejora para la web? Tu opinión es importante para nosotros.
+                        ¿Has encontrado algún problema en un parking? ¿Conoces algún parking que no cumpla con los requisitos? ¿Alguna mejora para la web? Tu opinión es importante para nosotros.
                     </p>
 
                     <form onSubmit={onSubmit} className="flex flex-col space-y-6">
-                        <Input text="Tu nombre" value={userName} onChange={setUserName} />
-                        <Input text="Tu email" value={mail} onChange={setMail} />
-                        <Input text="Asunto" value={asunto} onChange={setAsunto} />
+                        <Input text="Tu nombre" value={userName} onChange={setUserName} aria-label="Nombre" />
+                        <Input text="Tu email" value={mail} onChange={setMail} aria-label="Email" />
+                        <Input text="Asunto" value={asunto} onChange={setAsunto} aria-label="Asunto" />
                         <textarea
                             className="w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-primary"
                             placeholder="Escribe tu mensaje"
                             value={userMessage}
                             onChange={(e) => setUserMessage(e.target.value)}
                             rows="4"
+                            aria-label="Mensaje"
                             required
                         />
                         <Button
@@ -101,7 +102,7 @@ const Contact = () => {
                 </div>
 
                 <aside className="w-full mt-8 md:w-1/2 md:mt-0 md:animate-fade-in-left">
-                    <img className="w-full h-auto" src={image} alt="Imagen de información" />
+                    <img className="w-full h-auto" src={image} alt="Imagen de contacto" />
                 </aside>
             </section>
         </>
@@ -109,5 +110,3 @@ const Contact = () => {
 };
 
 export default Contact;
-
-

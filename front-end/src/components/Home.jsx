@@ -3,7 +3,7 @@ import MapView from './MapView/MapView';
 //import SearchBar from './SearchBar/SearchBar';
 //import { cities } from '../constants/cities';
 import parkingsService from '../services/parkings';
-import { Helmet } from 'react-helmet'
+import {Helmet} from 'react-helmet-async'
 import SearchAddress from './SearchAddress/SearchAddress';
 
 function Home() {
@@ -28,50 +28,49 @@ function Home() {
 
   return (
     <>
-      <Helmet>
+            <Helmet>
         {/* Título con palabras clave */}
         <title>FindMyPark - Encuentra Parkings Gratuitos cerca de ti</title>
-  
+
         {/* Meta descripción optimizada */}
         <meta
           name="description"
           content="Descubre los mejores parkings gratuitos cerca de tu ubicación con FindMyPark. Informamos sobre plazas de estacionamiento libre en tiempo real. ¡Aparcar nunca fue tan fácil!"
         />
-  
-        {/* Meta keywords */}
-        <meta
-          name="keywords"
-          content="parking gratuito, estacionamiento libre, aparcamiento gratuito, parking gratis, FindMyPark, aparcamiento gratis, parking gratis Barcelona, aparcamiento gratis Barcelona, parking Barcelona"
-        />
-  
+
         {/* Etiquetas Open Graph para redes sociales */}
         <meta property="og:title" content="FindMyPark - Encuentra Parkings Gratuitos cerca de ti" />
         <meta
           property="og:description"
           content="Encuentra fácilmente parkings gratuitos en tu ciudad con FindMyPark. Estacionamiento sencillo y sin costos."
         />
-        <meta property="og:image" content="URL_DE_LA_IMAGEN_DEL_LOGO_O_DE_LA_WEB" />
+        <meta property="og:image" content="https://tusitio.com/logo.png" />
         <meta property="og:url" content="https://tusitio.com" />
         <meta property="og:type" content="website" />
-  
+
         {/* Etiquetas para Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="FindMyPark - Encuentra Parkings Gratuitos" />
         <meta name="twitter:description" content="Descubre parkings gratuitos cerca de ti con FindMyPark." />
-        <meta name="twitter:image" content="URL_DE_LA_IMAGEN_DEL_LOGO_O_DE_LA_WEB" />
-  
+        <meta name="twitter:image" content="https://tusitio.com/logo.png" />
+
         {/* Schema.org (Estructura de datos) */}
         <script type="application/ld+json">
           {`
-        {
-          "@context": "https://schema.org",
-          "@type": "Organization",
-          "name": "FindMyPark",
-          "url": "https://tusitio.com",
-          "logo": "URL_DE_LA_IMAGEN_DEL_LOGO_O_DE_LA_WEB",
-          "description": "FindMyPark ayuda a los usuarios a encontrar estacionamientos gratuitos cerca de ellos.",
-        }
-      `}
+            {
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              "name": "FindMyPark",
+              "url": "https://tusitio.com",
+              "logo": "https://tusitio.com/logo.png",
+              "description": "FindMyPark ayuda a los usuarios a encontrar estacionamientos gratuitos cerca de ellos.",
+              "contactPoint": {
+                "@type": "ContactPoint",
+                "telephone": "+1-800-555-5555",
+                "contactType": "Customer service"
+              }
+            }
+          `}
         </script>
       </Helmet>
   

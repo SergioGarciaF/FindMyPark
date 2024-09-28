@@ -1,7 +1,7 @@
 import image1 from '../../assets/drawkit-transport-scene-1.svg';
 import image2 from '../../assets/drawkit-transport-scene-3.svg';
 import image3 from '../../assets/drawkit-transport-scene-10.svg';
-import { Helmet } from 'react-helmet';
+import {Helmet} from 'react-helmet-async'
 import SecondaryMobileNavbar from '../SecondaryMobileNavBar/SecondaryMobileNavbar';
 
 const AboutUs = () => {
@@ -9,6 +9,47 @@ const AboutUs = () => {
         <>
             <Helmet>
                 <title>¿Qué es FindMyPark? - Conoce Nuestra Historia y Objetivo</title>
+
+                {/* Meta descripción optimizada */}
+                <meta
+                    name="description"
+                    content="Conoce la historia y objetivo de FindMyPark. Descubre cómo ayudamos a conductores a encontrar parkings gratuitos, ahorrando tiempo y dinero en cada ciudad."
+                />
+
+                {/* Etiquetas Open Graph */}
+                <meta property="og:title" content="¿Qué es FindMyPark? - Conoce Nuestra Historia y Objetivo" />
+                <meta
+                    property="og:description"
+                    content="Descubre por qué creamos FindMyPark y cómo te ayudamos a encontrar parkings gratuitos en diferentes ciudades."
+                />
+                <meta property="og:image" content="https://tusitio.com/logo.png" />
+                <meta property="og:url" content="https://tusitio.com/about-us" />
+                <meta property="og:type" content="website" />
+
+                {/* Etiquetas para Twitter */}
+                <meta name="twitter:card" content="summary_large_image" />
+                <meta name="twitter:title" content="¿Qué es FindMyPark? - Conoce Nuestra Historia y Objetivo" />
+                <meta name="twitter:description" content="Aprende cómo FindMyPark te ayuda a encontrar parkings gratuitos en distintas ciudades." />
+                <meta name="twitter:image" content="https://tusitio.com/logo.png" />
+
+                {/* Schema.org (Estructura de datos) */}
+                <script type="application/ld+json">
+                    {`
+                        {
+                            "@context": "https://schema.org",
+                            "@type": "Organization",
+                            "name": "FindMyPark",
+                            "url": "https://tusitio.com",
+                            "logo": "https://tusitio.com/logo.png",
+                            "description": "FindMyPark ayuda a los usuarios a encontrar estacionamientos gratuitos cerca de ellos.",
+                            "contactPoint": {
+                                "@type": "ContactPoint",
+                                "telephone": "+1-800-555-5555",
+                                "contactType": "Customer service"
+                            }
+                        }
+                    `}
+                </script>
             </Helmet>
 
             <SecondaryMobileNavbar />

@@ -3,7 +3,7 @@ import emailjs from "emailjs-com";
 import image from '../../assets/drawkit-transport-scene-2.svg'; 
 import Input from "../ui/Input"; 
 import Button from "../ui/Button"; 
-import { Helmet } from "react-helmet";
+import {Helmet} from 'react-helmet-async'
 import SecondaryMobileNavBar from '../SecondaryMobileNavBar/SecondaryMobileNavbar';
 
 const Inform = () => {
@@ -65,8 +65,10 @@ const Inform = () => {
                 <meta property="og:description" content="Informa de parkings gratuitos y ayuda a la comunidad." />
                 <meta property="og:url" content="https://tusitio.com/inform-data" />
                 <meta property="og:type" content="website" />
+                <meta property="og:image" content="https://tusitio.com/assets/inform-image.jpg" />
                 <meta name="robots" content="index,follow" />
                 <meta name="keywords" content="informar parking, parking gratuito, sugerir parking, FindMyPark" />
+                <link rel="canonical" href="https://tusitio.com/inform-data" />
             </Helmet>
 
             <SecondaryMobileNavBar />
