@@ -1,5 +1,6 @@
 import L from 'leaflet';
 import PositonMarkerIcon from '../../assets/location_10797401.png'
+import ParkingMarkerIcon from '../../assets/ParkingMarker.webp'
 import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import MarkerClusterGroup from 'react-leaflet-cluster';
@@ -27,8 +28,8 @@ const MapView = ({ location, parkings, selectPosition }) => {
 
 
   const customIcon = new L.Icon({
-    iconUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon.png',
-    iconSize: [25, 41],
+    iconUrl: ParkingMarkerIcon,
+    iconSize: [28, 40],
     iconAnchor: [12, 41],
     popupAnchor: [1, -34],
     shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png',

@@ -25,7 +25,7 @@ const MobileNavBar = () => {
         <img
           src={burguer}
           alt="Menu"
-          className={`w-8 h-7 ms-3 ${isOpen ? 'hidden' : 'block'} transition-opacity duration-200 bg-background rounded-sm`}
+          className={` border-2 w-8 h-7 ms-3 ${isOpen ? 'hidden' : 'block'} transition-opacity duration-200 bg-background rounded-sm`}
         />
         <svg
           className={`w-6 h-6 ${isOpen ? 'block' : 'hidden'} transition-opacity duration-200`}

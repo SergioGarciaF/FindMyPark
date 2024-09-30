@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import Logo from '../assets/opel-svgrepo-com.svg'
+import Logo from '../assets/logo.svg'
 import { House, BookOpen, BadgeInfo, Mail, Heart} from 'lucide-react'
 
 
@@ -9,7 +9,7 @@ const Navbar = () => {
   return (
 
     <aside className="fixed z-50 flex flex-col items-center w-20 h-screen bg-white border-r border-gray-200">
-      <div className="flex h-[4.5rem] w-full items-center justify-center border-b border-gray-200 p-2">
+      <div className="flex h-[4 rem] w-full items-center justify-center border-b border-gray-200 p-2">
         <img src={Logo} />
       </div>
       <nav className="flex flex-col flex-1 pt-10 gap-y-4">
