@@ -9,9 +9,14 @@ const Navbar = () => {
   return (
 
     <aside className="fixed z-50 flex flex-col items-center w-20 h-screen bg-white border-r border-gray-200">
-      <div className="flex h-[4 rem] w-full items-center justify-center border-b border-gray-200 p-2">
-        <img src={Logo} />
-      </div>
+        {/* Logo */}
+      <Link to="/">
+        <img
+          src={Logo}
+          alt="Logo FindMyPark"
+          className="w-16 h-16 mt-4 mb-4" // Ajusta el tamaño del logo
+        />
+      </Link>
       <nav className="flex flex-col flex-1 pt-10 gap-y-4">
         <Link to='/' className="relative p-2 text-blue-600 bg-gray-100 group rounded-xl hover:bg-gray-50">
           <svg className="w-6 h-6 stroke-current" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
