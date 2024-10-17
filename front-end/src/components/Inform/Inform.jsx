@@ -76,9 +76,9 @@ const Inform = () => {
             <section className="flex flex-col items-center justify-center min-h-screen px-6 py-12 bg-gray-50 md:flex-row md:space-x-8">
                 <div className="flex flex-col w-full max-w-2xl p-10 space-y-6 bg-white shadow-lg rounded-3xl md:w-1/2 md:animate-fade-in-down">
                     <header>
-                        <h1 className="text-4xl font-semibold text-center text-gray-900">¿Conoces algún parking?</h1>
+                        <h1 className="text-4xl font-semibold text-center font-title text-secondary">¿Conoces algún parking?</h1>
                     </header>
-                    <p className="text-lg text-center text-gray-600">
+                    <p className="text-lg text-center font-text text-secondary">
                         Infórmanos sobre un parking gratuito que conozcas y contribuye a mejorar nuestra base de datos para el beneficio de toda la comunidad. ¡Gracias por tu colaboración!
                     </p>
 

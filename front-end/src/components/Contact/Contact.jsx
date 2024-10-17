@@ -69,12 +69,12 @@ const Contact = () => {
                 <meta property="og:type" content="website" />
             </Helmet>
             <SecondaryMobileNavbar />
-            <section className="flex flex-col items-center justify-center min-h-screen px-6 py-12 bg-gray-50 md:flex-row md:space-x-8">
-                <div className="flex flex-col w-full max-w-2xl p-10 space-y-6 bg-white shadow-lg rounded-3xl md:w-1/2 md:animate-fade-in-down">
+            <section className="flex flex-col items-center justify-center min-h-screen px-6 py-12 bg-background md:flex-row md:space-x-8">
+                <div className="flex flex-col w-full max-w-2xl p-10 space-y-6 shadow-lg bg-background rounded-3xl md:w-1/2 md:animate-fade-in-down">
                     <header>
-                        <h1 className="text-4xl font-semibold text-center text-gray-900">¡Ayúdanos a mejorar!</h1>
+                        <h1 className="text-4xl font-semibold text-center font-title text-secondary">¡Ayúdanos a mejorar!</h1>
                     </header>
-                    <p className="text-lg text-center text-gray-600">
+                    <p className="text-lg text-center font-text text-secondary">
                         ¿Has encontrado algún problema en un parking? ¿Conoces algún parking que no cumpla con los requisitos? ¿Alguna mejora para la web? Tu opinión es importante para nosotros.
                     </p>
 
@@ -83,7 +83,7 @@ const Contact = () => {
                         <Input text="Tu email" value={mail} onChange={setMail} aria-label="Email" />
                         <Input text="Asunto" value={asunto} onChange={setAsunto} aria-label="Asunto" />
                         <textarea
-                            className="w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-primary"
+                            className="w-full p-3 border rounded-lg shadow-sm border-secondary focus:outline-none focus:ring-2 focus:ring-primary"
                             placeholder="Escribe tu mensaje"
                             value={userMessage}
                             onChange={(e) => setUserMessage(e.target.value)}
@@ -94,7 +94,7 @@ const Contact = () => {
                         <Button
                             text={isSubmitting ? "Enviando..." : "Enviar"}
                             disabled={isSubmitting}
-                            className="w-full py-3 text-white bg-blue-600 rounded-full shadow hover:bg-blue-500 focus:outline-none focus:ring-4 focus:ring-blue-200"
+                            className="w-full py-3 text-white rounded-full shadow focus:outline-none focus:ring-4 focus:ring-blue-200"
                         />
                     </form>
 

@@ -25,7 +25,7 @@ const SecondaryMobileNavbar = () => {
           {/* Botón del menú móvil */}
           <button
             onClick={toggleMenu}
-            className="md:hidden text-buttonText hover:text-buttonText focus:outline-none"
+            className="md:hidden text-secondary hover:text-secondary focus:outline-none"
             aria-label="Toggle navigation menu"
           >
             <motion.svg
@@ -64,8 +64,8 @@ const SecondaryMobileNavbar = () => {
           animate={{ height: isOpen ? '100vh' : 0, opacity: isOpen ? 1 : 0 }}
           transition={{ duration: 0.5, ease: "easeInOut" }}
         >
-          <nav aria-label="Mobile navigation" className="flex items-center justify-center h-96">
-            <ul className="flex flex-col items-center space-y-10 text-3xl font-semibold text-secondary">
+          <nav aria-label="Mobile navigation" className="flex flex-col items-center justify-center h-full bg-background">
+            <ul className="flex flex-col items-center space-y-10 text-3xl font-bold text-secondary">
               <li><Link to="/" onClick={closeMenu}>Home</Link></li>
               <li><Link to="/about-us" onClick={closeMenu}>¿Qué es FindMyPark?</Link></li>
               <li><Link to="/inform-data" onClick={closeMenu}>Informar de un Parking</Link></li>
