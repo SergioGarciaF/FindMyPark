@@ -5,8 +5,12 @@ import Input from "../ui/Input";
 import Button from "../ui/Button";
 import { Helmet } from 'react-helmet-async';
 import SecondaryMobileNavbar from "../SecondaryMobileNavBar/SecondaryMobileNavbar";
+import usePageTracking from '../../hooks/usePageTracking'
 
 const Contact = () => {
+
+    usePageTracking("Contacto")
+
     const [mail, setMail] = useState('');
     const [userName, setUserName] = useState('');
     const [asunto, setAsunto] = useState('');

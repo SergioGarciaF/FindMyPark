@@ -5,8 +5,12 @@ import Input from "../ui/Input";
 import Button from "../ui/Button"; 
 import {Helmet} from 'react-helmet-async'
 import SecondaryMobileNavBar from '../SecondaryMobileNavBar/SecondaryMobileNavbar';
+import usePageTracking from '../../hooks/usePageTracking'
 
 const Inform = () => {
+
+    usePageTracking("Informar de un parking")
+
     const [userName, setUserName] = useState('');
     const [userMail, setUserMail] = useState('');
     const [parkName, setParkName] = useState('');
