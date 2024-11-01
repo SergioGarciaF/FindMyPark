@@ -1,9 +1,9 @@
 import { useState } from "react";
 import emailjs from "emailjs-com";
-import image from '../../assets/drawkit-transport-scene-2.svg'; 
-import Input from "../ui/Input"; 
-import Button from "../ui/Button"; 
-import {Helmet} from 'react-helmet-async'
+import image from '../../assets/drawkit-transport-scene-2.svg';
+import Input from "../ui/Input";
+import Button from "../ui/Button";
+import { Helmet } from 'react-helmet-async'
 import SecondaryMobileNavBar from '../SecondaryMobileNavBar/SecondaryMobileNavbar';
 import usePageTracking from '../../hooks/usePageTracking'
 
@@ -87,11 +87,16 @@ const Inform = () => {
                     </p>
 
                     <form onSubmit={onSubmit} className="flex flex-col space-y-6">
-                        <Input text="Tu nombre" value={userName} onChange={setUserName} />
-                        <Input text="Tu email" value={userMail} onChange={setUserMail} />
-                        <Input text="Nombre del parking" value={parkName} onChange={setParkName} />
-                        <Input text="Ciudad" value={cityName} onChange={setCityName} />
-                        <Input text="URL Google maps" value={url} onChange={setUrl} />
+                        <label htmlFor="nombre">Nombre</label>
+                        <Input id="nombre" aria-label="nombre" text="Tu nombre" value={userName} onChange={setUserName} />
+                        <label htmlFor="email">email</label>
+                        <Input id="email" aria-label="email" text="Tu email" value={userMail} onChange={setUserMail} />
+                        <label htmlFor="parking">Parking</label>
+                        <Input id="parking" aria-label="parking" text="Nombre del parking" value={parkName} onChange={setParkName} />
+                        <label htmlFor="ciudad">Ciudad</label>
+                        <Input id="ciudad" aria-label="ciudad" text="Ciudad" value={cityName} onChange={setCityName} />
+                        <label htmlFor="url">URL Google Maps</label>
+                        <Input id="url" aria-label="url" text="URL Google maps" value={url} onChange={setUrl} />
                         <Button
                             text={isSubmitting ? "Enviando..." : "Enviar"}
                             disabled={isSubmitting}

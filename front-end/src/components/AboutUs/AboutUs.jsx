@@ -3,8 +3,11 @@ import image2 from '../../assets/drawkit-transport-scene-3.svg';
 import image3 from '../../assets/drawkit-transport-scene-10.svg';
 import { Helmet } from 'react-helmet-async'
 import SecondaryMobileNavbar from '../SecondaryMobileNavBar/SecondaryMobileNavbar';
+import usePageTracking from '../../hooks/usePageTracking'
 
 const AboutUs = () => {
+
+    usePageTracking("About us")
 
     return (
         <>
@@ -60,8 +63,8 @@ const AboutUs = () => {
                     {/* Section 1 */}
                     <section className="flex flex-col items-center lg:flex-row lg:space-x-16 animate-fade-in-right">
                         <div className="space-y-8 lg:w-1/2">
-                            <h1 className="text-3xl font-bold lg:text-4xl">¿Por qué FindMyPark?</h1>
-                            <p className="text-lg leading-relaxed lg:text-xl">
+                            <h1 className="text-3xl font-bold font-title lg:text-4xl">¿Por qué FindMyPark?</h1>
+                            <p className="text-lg leading-relaxed font-text lg:text-xl">
                                 Todo comenzó con una frustración que muchos hemos experimentado: viajar a una nueva ciudad y perder valiosos minutos, o incluso horas, en la tediosa búsqueda de un aparcamiento adecuado. Recuerdo varias ocasiones en las que el entusiasmo de descubrir un nuevo lugar se veía opacado por el estrés de no encontrar dónde dejar el coche sin pagar una fortuna o sin temor a restricciones de horarios. Fue en medio de esas situaciones, cuando me encontraba dando vueltas y vueltas por calles desconocidas, que empecé a pensar en una solución práctica que no solo me beneficiara a mí, sino también a todas aquellas personas que, como yo, disfrutan de la aventura de explorar nuevas ciudades. Así nació la idea de crear una herramienta que hiciera más sencilla y agradable la experiencia de viajar, eliminando la preocupación constante por encontrar aparcamiento. Quería ofrecer una alternativa que permitiera a los viajeros concentrarse en lo que realmente importa: descubrir y disfrutar cada rincón de los lugares que visitan.
                             </p>
                         </div>
@@ -73,8 +76,8 @@ const AboutUs = () => {
                     {/* Section 2 */}
                     <section className="flex flex-col items-center lg:flex-row-reverse lg:space-x-reverse lg:space-x-16 animate-fade-in-left">
                         <div className="space-y-8 lg:w-1/2">
-                            <h2 className="text-3xl font-bold lg:text-4xl">Nuestro objetivo</h2>
-                            <p className="text-lg leading-relaxed lg:text-xl">
+                            <h2 className="text-3xl font-bold font-title lg:text-4xl">Nuestro objetivo</h2>
+                            <p className="text-lg leading-relaxed font-text lg:text-xl">
                                 FindMyPark fue creado con el claro objetivo de ofrecer una plataforma efectiva y accesible para que las personas puedan consultar parkings gratuitos en distintas ciudades. La idea no solo surge de la necesidad de hacer más cómoda la experiencia de conducir en áreas urbanas, sino también de proporcionar una solución que ayude a ahorrar tiempo y dinero, factores esenciales en el día a día de cualquier viajero o residente. Además, FindMyPark tiene un fuerte compromiso con el medioambiente, ya que al facilitar la localización de parkings gratuitos y sin restricciones, reducimos el tiempo que los conductores pasan dando vueltas innecesarias por la ciudad. Esto no solo disminuye el estrés, sino que también contribuye a la reducción de emisiones de CO2, un paso pequeño pero significativo hacia una movilidad más sostenible. Queremos que cada vez más personas puedan acceder a esta herramienta, no solo para mejorar su experiencia al aparcar, sino también para hacer su parte en la protección del medio ambiente, apoyando una forma de transporte más eficiente y ecológica.
                             </p>
                         </div>
@@ -86,8 +89,8 @@ const AboutUs = () => {
                     {/* Section 3 */}
                     <section className="flex flex-col items-center lg:flex-row lg:space-x-16 animate-fade-in-right">
                         <div className="space-y-8 lg:w-1/2">
-                            <h2 className="text-3xl font-bold lg:text-4xl">Ventajas de FindMyPark</h2>
-                            <ul className="pl-5 space-y-4 text-lg leading-relaxed list-disc lg:text-xl">
+                            <h2 className="text-3xl font-bold font-title lg:text-4xl">Ventajas de FindMyPark</h2>
+                            <ul className="pl-5 space-y-4 text-lg leading-relaxed list-disc font-text lg:text-xl">
                                 <li><span className="font-semibold">Ahorro de Dinero:</span> Una de las mayores ventajas de FindMyPark es que te ayuda a encontrar parkings completamente gratuitos, lo que significa que puedes evitar el gasto innecesario en zonas de pago o en aparcamientos privados. Esto resulta especialmente beneficioso para quienes viajan con frecuencia o viven en áreas donde el aparcamiento puede ser costoso. Además, al reducir los costos asociados con el aparcamiento, se libera presupuesto para disfrutar más del destino o de las actividades planeadas.</li>
                                 <li><span className="font-semibold">Comodidad:</span> Con FindMyPark, puedes planificar mejor tu ruta y evitar el estrés de llegar a una ciudad nueva sin saber dónde aparcar. Al tener acceso a una lista de parkings cercanos, puedes ahorrar tiempo y energía, eliminando la incertidumbre y permitiéndote disfrutar de tu viaje desde el momento en que llegas. Esto es ideal tanto para quienes están de paso como para los locales que necesitan una solución rápida y efectiva.</li>
                                 <li><span className="font-semibold">Facilidad de Uso:</span> FindMyPark está diseñado pensando en la simplicidad y la experiencia del usuario. La plataforma es intuitiva y fácil de usar, lo que permite que cualquier persona, sin importar su nivel de conocimiento tecnológico, pueda encontrar rápidamente un parking cercano sin complicaciones. Con una interfaz amigable y clara, el proceso de búsqueda es rápido y eficiente.</li>
@@ -101,7 +104,7 @@ const AboutUs = () => {
 
                     {/* Footer */}
                     <footer className="py-8 text-center">
-                        <h3 className="text-3xl font-semibold lg:text-4xl">Park smart, park for free :)</h3>
+                        <h3 className="text-3xl font-semibold fon-title lg:text-4xl">Park smart, park for free :)</h3>
                     </footer>
                 </article>
             </div>

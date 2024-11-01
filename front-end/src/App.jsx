@@ -1,11 +1,12 @@
-// src/App.jsx
+
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Layout from './components/Layout';
-import Home from './components/Home'  // Ajusta según la ruta de tu componente
+import Home from './components/Home'  
 import AboutUs from './components/AboutUs/AboutUs';
 import Inform from './components/Inform/Inform';
 import Contact from './components/Contact/Contact';
 import usePageTracking from './hooks/usePageTracking';
+//import ComingSoon from './components/ComingSoon/ComingSoon';
 
 function App() {
   

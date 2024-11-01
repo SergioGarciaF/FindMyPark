@@ -9,8 +9,11 @@ const Layout = () => {
   return (
     <div className="flex min-h-screen">
       <header className='hidden md:flex md:flex-col'>
-        <NavBar />
-        <MobileNavBar />
+        {/**
+         * 
+         */}
+         <NavBar /> 
+         <MobileNavBar />
       </header>
       {/**Aqui residen todas las paginas de la web */}
       <main className="w-full">

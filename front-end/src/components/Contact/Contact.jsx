@@ -83,16 +83,21 @@ const Contact = () => {
                     </p>
 
                     <form onSubmit={onSubmit} className="flex flex-col space-y-6">
-                        <Input text="Tu nombre" value={userName} onChange={setUserName} aria-label="Nombre" />
-                        <Input text="Tu email" value={mail} onChange={setMail} aria-label="Email" />
-                        <Input text="Asunto" value={asunto} onChange={setAsunto} aria-label="Asunto" />
+                        <label htmlFor="nombre">Nombre</label>
+                        <Input id="nombre" text="Tu nombre" value={userName} onChange={setUserName} aria-label="nombre" />
+                        <label htmlFor="email">Email</label>
+                        <Input id="email" text="Tu email" value={mail} onChange={setMail} aria-label="email" />
+                        <label htmlFor="asunto">Asunto</label>
+                        <Input id="asunto" text="Asunto" value={asunto} onChange={setAsunto} aria-label="asunto" />
+                        <label htmlFor="mensaje">mensaje</label>
                         <textarea
                             className="w-full p-3 border rounded-lg shadow-sm border-secondary focus:outline-none focus:ring-2 focus:ring-primary"
                             placeholder="Escribe tu mensaje"
                             value={userMessage}
                             onChange={(e) => setUserMessage(e.target.value)}
                             rows="4"
-                            aria-label="Mensaje"
+                            aria-label="mensaje"
+                            id="mensaje"
                             required
                         />
                         <Button
