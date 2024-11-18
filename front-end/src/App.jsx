@@ -6,7 +6,6 @@ import AboutUs from './components/AboutUs/AboutUs';
 import Inform from './components/Inform/Inform';
 import Contact from './components/Contact/Contact';
 import usePageTracking from './hooks/usePageTracking';
-//import ComingSoon from './components/ComingSoon/ComingSoon';
 
 function App() {
   

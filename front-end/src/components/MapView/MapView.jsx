@@ -58,7 +58,7 @@ const MapView = ({ location, parkings, selectPosition }) => {
       >
         <ChangeMapView location={location} selectPosition={selectPosition} />
         <TileLayer
-          url="https://api.maptiler.com/maps/streets-v2/{z}/{x}/{y}.png?key=lOBLIUjRiW4O5wNHxSAz"
+          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         />
         <MarkerClusterGroup>
