@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import parkingService from '../../services/parkings';
+import { Minimize2 } from 'lucide-react'
 
 // Función para calcular la distancia entre dos coordenadas (fórmula haversine)
 const calculateDistance = (lat1, lng1, lat2, lng2) => {
@@ -18,10 +19,12 @@ const calculateDistance = (lat1, lng1, lat2, lng2) => {
 const NearbyParkings = ({ selectedLocation }) => {
   const [nearbyParkings, setNearbyParkings] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [isOpen, setIsOpen] = useState(true);
 
   useEffect(() => {
     const fetchNearbyParkings = async () => {
       if (selectedLocation) {
+        
         setLoading(true);
         try {
           const { lat, lng } = selectedLocation;
@@ -29,9 +32,9 @@ const NearbyParkings = ({ selectedLocation }) => {
 
           // Obtener los parkings cercanos
           const parkings = await parkingService.getNearbyParkings(lat, lng);
-
           console.log('Parkings fetched:', parkings);
           setNearbyParkings(parkings);
+          setIsOpen(true)
         } catch (error) {
           console.error('Error al obtener los parkings cercanos:', error);
         } finally {
@@ -44,12 +47,18 @@ const NearbyParkings = ({ selectedLocation }) => {
   }, [selectedLocation]);
 
   return (
-    <div className="max-w-3xl mx-auto mt-8 bg-white shadow-sm rounded-xl">
-      <h3 className="px-6 py-4 text-xl font-semibold text-gray-900">Parkings Cercanos</h3>
+    <div className="w-full mt-8 bg-white shadow-sm md:max-w-3xl rounded-xl">
+      <div className="flex">
+        <h3 className="px-6 py-4 text-xl font-semibold text-gray-900">Parkings Cercanos</h3>
+        <button className="px-6 py-4 ml-auto" onClick={() => setIsOpen(!isOpen)}>
+          <Minimize2 />
+        </button>
+      </div>
+  
       {loading ? (
         <p className="px-6 py-4 text-gray-500">Cargando parkings cercanos...</p>
       ) : (
-        <ul className="max-w-3xl overflow-y-auto divide-y divide-gray-300 max-h-80">
+        <ul className={`w-full overflow-y-auto divide-y divide-gray-300 md:max-w-3xl max-h-80 ${isOpen ? 'block' : 'hidden'} `}>
           {nearbyParkings.length > 0 ? (
             nearbyParkings.map((parking) => {
               const distance = calculateDistance(
@@ -58,7 +67,7 @@ const NearbyParkings = ({ selectedLocation }) => {
                 parking.location.coordinates[1],
                 parking.location.coordinates[0]
               );
-
+  
               return (
                 <li key={parking.id} className="flex items-center px-6 py-5 transition-all hover:bg-gray-50">
                   <div className="flex-1">
@@ -85,6 +94,7 @@ const NearbyParkings = ({ selectedLocation }) => {
       )}
     </div>
   );
+  
 };
 
 export default NearbyParkings;

@@ -1,4 +1,6 @@
 /** @type {import('tailwindcss').Config} */
+import animations from '@midudev/tailwind-animations'
+
 export default {
   content: [
     "./index.html",
@@ -7,18 +9,16 @@ export default {
   theme: {
     extend: {
       colors: {
-        background: '#FDFDFD', // Fondo principal
-        primary: '#86a473',    // Botones, enlaces, encabezados
-        secondary: '#4E514D',  // Bordes, fondos secundarios
-        accent: '#e0edc5',     // Notificaciones, detalles
-        neutral: '#edecec',    // Texto secundario, iconos
-        buttonText: '#222222', // Texto para botones
+        background: '#f9fcfe', // Fondo principal
+        primary: '#aae847',    // Botones, enlaces, encabezados
+        secondary: '#292931',  // Bordes, fondos secundarios
+        accent: '#b9f066',     // Notificaciones, detalles
       },
       fontFamily: {
-        head: ['Work Sans', 'sans-serif'],   // Fuente para encabezados
-        text: ['Merriweather', 'serif'],    // Fuente para el texto del cuerpo
+        title: ['Space Grotesk', 'sans-serif'],   // Fuente para encabezados
+        text: ['Lora', 'serif']    // Fuente para el texto del cuerpo
       },
     },
   },
-  plugins: [],
+  plugins: [animations],
 }

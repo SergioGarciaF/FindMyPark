@@ -1,13 +1,16 @@
-// src/App.jsx
+
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Layout from './components/Layout';
-import Home from './components/Home'  // Ajusta según la ruta de tu componente
+import Home from './components/Home'  
 import AboutUs from './components/AboutUs/AboutUs';
 import Inform from './components/Inform/Inform';
 import Contact from './components/Contact/Contact';
-       // Ajusta según la ruta de tu componente
+import usePageTracking from './hooks/usePageTracking';
 
 function App() {
+  
+  usePageTracking("Home")
+
   return (
     <Router>
       <Routes>
@@ -17,7 +20,6 @@ function App() {
           <Route path='/about-us' element={<AboutUs/>} />
           <Route path='/inform-data' element={<Inform />} />
           <Route path='/contact' element={<Contact />}/>
-          {/* Puedes agregar más rutas según sea necesario */}
         </Route>
       </Routes>
     </Router>
